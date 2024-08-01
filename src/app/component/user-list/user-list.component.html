@@ -1,0 +1,28 @@
+<mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+<div class="user-list-container">
+  <div class="container">
+    <div class="row justify-content-center" [@pageChange]="currentPage">
+      
+        <div *ngFor="let user of users" class="user-card" (click)="viewUserDetails(user.id)" >
+          <div class="col-8">
+          <img [src]="user.avatar" alt="User Avatar">
+          <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+        </div>
+       
+      </div>
+      </div>
+      <div class="pagination-container" *ngIf="totalUsers > pageSize" appPagination
+        [totalItems]="totalUsers"
+        [pageSize]="pageSize"
+        [currentPage]="currentPage"
+        (pageChanged)="changePage($event)">
+     <button (click)="previousPage()">&laquo;</button>
+     <button *ngFor="let page of [].constructor(totalPages); let i = index"
+             [class.active]="currentPage === i + 1"
+             (click)="changePage(i + 1)">
+       {{ i + 1 }}
+     </button>
+     <button (click)="nextPage()">&raquo;</button>
+   </div>
+  </div>
+   

@@ -1,0 +1,13 @@
+<div class="container">
+    <div *ngIf="user" [@pageChange]="user.length">
+        <img class="img" [src]="user.avatar" alt="User Avatar">
+        <div class="my-2">
+            <h2>Name: {{ user.first_name }} {{ user.last_name }}</h2>
+        </div>
+        <h2>ID: {{ user.id }}</h2>
+      </div>
+      <div class="back my-3">
+          <button mat-flat-button  (click)="goBack()">Back</button>
+      </div>
+      
+</div>
