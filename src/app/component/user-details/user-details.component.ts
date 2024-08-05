@@ -46,6 +46,7 @@ export class UserDetailsComponent implements OnInit {
 
 
   goBack() {
+    this.userService.clearSearch.next(true)
     this.router.navigate(['/']);
   }
 }

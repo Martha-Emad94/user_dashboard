@@ -9,6 +9,7 @@ export class UserService {
   private baseUrl = 'https://reqres.in/api/users';
   private userCache = new Map<number, any>();
   isLoading = new BehaviorSubject<boolean>(false);
+  clearSearch = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient) {}
 
